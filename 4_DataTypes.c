@@ -8,6 +8,7 @@ void main(void){
     printf("Size of int is %d Ranges from %d to %d\n", sizeof(int), INT_MIN, INT_MAX );
     printf("Size of float is %d Ranges from %e to %e\n", sizeof(float), FLT_MIN, FLT_MAX );
     printf("Size of double is %d Ranges from %e to %e\n", sizeof(double), DBL_MIN, DBL_MAX );
+    printf("%d",60>>3);
 }
 
 /* Output 
