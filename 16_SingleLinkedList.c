@@ -23,24 +23,31 @@ void AddNode(int data){
         temp->link = new;
     }
 }
-void createList(int n){
+void createList(){
     int data, i; 
+    int n;
+    printf("Enter the total number of nodes: ");
+    scanf("%d", &n);
     printf("Enter the data of nodes \n");
     for(i = 1; i<=n; i++){
         scanf("%d", &data);
         AddNode(data);
     }
 }
-void traverseList();
+void traverseList(){
+    struct Node *temp;
+    temp = head;
+    while(temp){
+        printf("%d ", temp->i);
+    }
+}
 
 
 
 void main(){
-    int n;
-    printf("Enter the total number of nodes: ");
-    scanf("%d", &n);
+    
 
-    createList(n);
+    createList();
 
     printf("\nData in the list \n");
     traverseList();
