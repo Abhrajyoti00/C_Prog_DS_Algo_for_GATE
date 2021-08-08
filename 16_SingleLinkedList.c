@@ -52,6 +52,7 @@ void AddNodeatBeg(){
 }
 
 void traverseList(){
+    printf("\nData in the list \n");
     struct Node *temp;
     temp = head;
     while(temp){
@@ -67,11 +68,13 @@ void main(){
 
     createList();
 
-    printf("\nData in the list \n");
     traverseList();
 
-    printf("Add Nodes at front\n");
+    printf("\nAdd Nodes at front\n");
     AddNodeatBeg();
+
+    traverseList();
+
 
     return 0;
 
