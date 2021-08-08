@@ -8,7 +8,29 @@ struct  Node
 
 struct Node *head;
 
-void createList(int n);
+void AddNode(int data){
+    struct Node *new = (struct Node *) malloc(sizeof(struct Node));
+    new->i = data;
+    new->link = NULL;
+
+    if(head == NULL) // List is empty, so first node
+        head = new;
+    else{
+        struct Node *temp;
+        temp = head;
+        while(temp->link)
+            temp = temp->link;
+        temp->link = new;
+    }
+}
+void createList(int n){
+    int data, i; 
+    printf("Enter the data of nodes \n");
+    for(i = 1; i<=n; i++){
+        scanf("%d", &data);
+        AddNode(data);
+    }
+}
 void traverseList();
 
 
@@ -27,21 +49,3 @@ void main(){
 
 }
 
-void createList(int n){
-    int data, i;
-    printf("Enter the data of node 1\n");
-    scanf("%d", &data);
-    head->i = data;
-    head->link = NULL;
-    
-    for(i = 1; i<=n; i++){
-        struct Node *new = (struct Node *) malloc(sizeof(struct Node));
-        if(new == NULL)
-            printf("Unable to provide Memory\n");
-        else{
-            scanf("%d", &data);
-            new->i = data;
-            new->link = 
-        }
-    }
-}
