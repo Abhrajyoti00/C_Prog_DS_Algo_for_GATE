@@ -78,6 +78,16 @@ void traverseList(){
     }
 }
 
+struct Node *reverse(struct Node *cur){
+    struct Node *prev = NULL, *nextnode = NULL;
+    while(cur){
+        nextnode = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = nextnode;
+    }
+    return prev;
+}
 
 
 void main(){
@@ -97,9 +107,18 @@ void main(){
     AddNodeafterValue();
 
     traverseList();
+    // printf("\nDelete Node at beginning\n");
+
+    // AddNodeafterValue();
+
+    // traverseList();
+
+    printf("Reversing the Linked List\n");
+    head = reverse(head);
+    traverseList();
 
 
-    return 0;
+    return;
 
 }
 
