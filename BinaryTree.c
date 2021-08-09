@@ -1,11 +1,11 @@
 #include<stdio.h>
-
+#include<stdlib.h>
 struct node{
-    char data;
+    int data;
     struct node *left, *right;
 };
 
-struct node* AddNode(char c){
+struct node* AddNode(int c){
     struct node *newNode = (struct node*) malloc(sizeof(struct node));
     newNode->data = c;
     newNode->left = NULL;
@@ -14,7 +14,7 @@ struct node* AddNode(char c){
 }
 void PreOrder(struct node *t){
     if(t){
-        printf("%c, ", t->data);
+        printf("%d, ", t->data);
         PreOrder(t->left);
         PreOrder(t->right);
     }
@@ -25,7 +25,7 @@ void PreOrder(struct node *t){
 void InOrder(struct node *t){
     if(t){
         InOrder(t->left);
-        printf("%c, ", t->data);
+        printf("%d, ", t->data);
         InOrder(t->right);
     }
     else
@@ -36,7 +36,7 @@ void PostOrder(struct node *t){
     if(t){
         PostOrder(t->left);
         PostOrder(t->right);
-        printf("%c, ", t->data);
+        printf("%d, ", t->data);
     }
     else
         return;   
@@ -44,15 +44,15 @@ void PostOrder(struct node *t){
 
 
 void main(){
-    struct node* root = newNode(1);
+    struct node* root = AddNode(1);
     /* following is the tree after above statement
          1
         / \
       NULL NULL
     */
  
-    root->left = newNode(2);
-    root->right = newNode(3);
+    root->left = AddNode(2);
+    root->right = AddNode(3);
     /* 2 and 3 become left and right children of 1
             1
          /    \
@@ -61,7 +61,7 @@ void main(){
    NULL NULL NULL NULL
     */
  
-    root->left->left = newNode(4);
+    root->left->left = AddNode(4);
     /* 4 becomes left child of 2
              1
          /    \
@@ -71,10 +71,10 @@ void main(){
     / \
  NULL NULL
     */
-   printf("The PreOrder Traversal of the Binary Tree is : \n");
+   printf("\nThe PreOrder Traversal of the Binary Tree is : \n");
    PreOrder(root);
-   printf("The InOrder Traversal of the Binary Tree is : \n");
+   printf("\nThe InOrder Traversal of the Binary Tree is : \n");
    InOrder(root);
-   printf("The PostOrder Traversal of the Binary Tree is : \n");
+   printf("\nThe PostOrder Traversal of the Binary Tree is : \n");
    PostOrder(root);
 }
