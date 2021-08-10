@@ -42,7 +42,7 @@ void PostOrder(struct node *t){
         return;   
 }
 
-int NN(struct node *root){
+int NN(struct node *root){ // No of Nodes
     if(root == NULL)
         return 0;
     else{
@@ -56,6 +56,14 @@ int NL(struct node *root){   //No of Leaf
         return 1;
     else
         return NL(root->left) + NL(root->right);
+}
+int NNL(struct node *root){   //No of Non - Leaf
+    if(root == NULL)
+        return 0;
+    if(root->left == NULL && root->right == NULL)
+        return 0;
+    else
+        return 1+NNL(root->left) + NNL(root->right);
 }
 
 void main(){
@@ -95,5 +103,6 @@ void main(){
 
     printf("\nThe number of nodes in the tree :- %d\n", NN(root));
     printf("\nThe number of leaf nodes in the tree :- %d\n", NL(root));
+    printf("\nThe number of non - leaf nodes in the tree :- %d\n", NNL(root));
 
 }
