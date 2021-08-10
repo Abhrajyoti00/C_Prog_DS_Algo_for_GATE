@@ -42,6 +42,13 @@ void PostOrder(struct node *t){
         return;   
 }
 
+int NN(struct node *root){
+    if(root == NULL)
+        return 0;
+    else{
+        return (1+NN(root->left)+NN(root->right));
+    }
+}
 
 void main(){
     struct node* root = AddNode(1);
@@ -77,4 +84,7 @@ void main(){
    InOrder(root);
    printf("\nThe PostOrder Traversal of the Binary Tree is : \n");
    PostOrder(root);
+
+    printf("\nThe number of nodes in the tree :- %d\n", NN(root));
+
 }
