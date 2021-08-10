@@ -49,6 +49,14 @@ int NN(struct node *root){
         return (1+NN(root->left)+NN(root->right));
     }
 }
+int NL(struct node *root){   //No of Leaf
+    if(root == NULL)
+        return 0;
+    if(root->left == NULL && root->right == NULL)
+        return 1;
+    else
+        return NL(root->left) + NL(root->right);
+}
 
 void main(){
     struct node* root = AddNode(1);
@@ -86,5 +94,6 @@ void main(){
    PostOrder(root);
 
     printf("\nThe number of nodes in the tree :- %d\n", NN(root));
+    printf("\nThe number of leaf nodes in the tree :- %d\n", NL(root));
 
 }
