@@ -72,7 +72,15 @@ int FN(struct node *root){   //No of Full Nodes
         return 0;
     return (FN(root->left) + FN(root->right) + ((root->right && root->left) ? 1:0));
 }
-
+int H(struct node *root){
+    if(!root)
+        return 0;
+    if(!root->left && !root->right)
+        return 0;
+    int l = H(root->left);
+    int r = H(root->right);
+    return 1+ ((l>r)?l:r);
+}
 
 
 void main(){
@@ -114,5 +122,6 @@ void main(){
     printf("\nThe number of leaf nodes in the tree :- %d\n", NL(root));
     printf("\nThe number of non - leaf nodes in the tree :- %d\n", NNL(root));
     printf("\n The no of full nodes are %d\n", FN(root));
+    printf("\n The height of the binary tree is %d\n", H(root));
 
 }
