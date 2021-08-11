@@ -65,6 +65,15 @@ int NNL(struct node *root){   //No of Non - Leaf
     else
         return 1+NNL(root->left) + NNL(root->right);
 }
+int FN(struct node *root){   //No of Full Nodes
+    if(root == NULL) 
+        return 0;
+    if(root->left == NULL && root->right == NULL)   // Leaf
+        return 0;
+    return (FN(root->left) + FN(root->right) + ((root->right && root->left) ? 1:0));
+}
+
+
 
 void main(){
     struct node* root = AddNode(1);
@@ -104,5 +113,6 @@ void main(){
     printf("\nThe number of nodes in the tree :- %d\n", NN(root));
     printf("\nThe number of leaf nodes in the tree :- %d\n", NL(root));
     printf("\nThe number of non - leaf nodes in the tree :- %d\n", NNL(root));
+    printf("\n The no of full nodes are %d\n", FN(root));
 
 }
