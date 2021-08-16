@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include<math.h>
 void Merge(int arr[], int p, int q, int r)
 {
     int n1 = q - p + 1;
@@ -24,4 +24,11 @@ void Merge(int arr[], int p, int q, int r)
         }
     }
 }
-void MergeSort(int arr[], int n);
+void MergeSort(int arr[], int p, int r){
+    if(p<r){
+        int q = (int)floor((p+q)/2);
+        MergeSort(arr, p,q );
+        MergeSort(arr, q+1,r );
+        Merge(arr, p, q, r);
+    }
+}
