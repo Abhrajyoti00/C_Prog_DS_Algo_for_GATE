@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+void Merge(int arr[], int p, int q, int r)
+{
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    int L[n1 + 2], R[n2 + 2];
+    int i, j;
+    for (i = 1; i < n1; i++)
+        L[i] = arr[p + i - 1];
+    for (i = 1; i < n2; i++)
+        R[i] = arr[q + j];
+    L[n1 + 1] = __INT_MAX__;
+    R[n2 + 1] = __INT_MAX__;
+    i = j = 1;
+    for (int k = p; k < r; k++){
+        if(L[i] <= R[j]){
+            arr[k] = L[i];
+            i+=1;
+        }
+        else{
+            arr[k] = R[j];
+            j+=1;
+        }
+    }
+}
+void MergeSort(int arr[], int n);
